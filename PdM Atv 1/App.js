@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import { View, ScrollView } from "react-native";
 import FormCadastro from "./src/components/UserForm";
 import ListaCadastros from "./src/components/UserList";
-import { styles } from "./src/Styles/styles";
+import { formStyles } from "./src/Styles/styles";
 
 const dadosInicio = [
   { nomeCompleto: "João Pedro Gurgel", contato: "61 99808-2206" },
@@ -49,7 +49,7 @@ export default function Aplicativo() {
   ), [registros]);
 
   return (
-    <View style={styles.container}>
+    <View style={formStyles.mainContainer}>
       {memoizedForm}
       <ScrollView>
         {memoizedList}

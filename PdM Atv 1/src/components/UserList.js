@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, FlatList } from "react-native";
 import { userLabels } from "./labels";
-import { listStyles } from "../Styles/listStyles";
+import { listStyles } from "../Styles/styles";
 
-const RegisteredUsers = ({ users }) => {
+const RegisteredUsers = ({ dados }) => {
   const renderHeader = () => (
     <View style={listStyles.columnHeaders}>
       <Text style={listStyles.headerText}>{userLabels.nameColumn}</Text>
@@ -18,8 +18,8 @@ const RegisteredUsers = ({ users }) => {
         index % 2 === 0 ? listStyles.evenItem : listStyles.oddItem
       ]}
     >
-      <Text style={listStyles.itemName}>{item.name}</Text>
-      <Text style={listStyles.itemPhone}>{item.phone}</Text>
+      <Text style={listStyles.itemName}>{item.nomeCompleto}</Text>
+      <Text style={listStyles.itemPhone}>{item.contato}</Text>
     </View>
   );
 
@@ -28,7 +28,7 @@ const RegisteredUsers = ({ users }) => {
       {renderHeader()}
       
       <FlatList
-        data={users}
+        data={dados}
         renderItem={renderUserItem}
         keyExtractor={(item, index) => index.toString()}
         contentContainerStyle={listStyles.listContent}

@@ -1,14 +1,14 @@
 import React from "react";
 import { View, TextInput, Text, Pressable } from "react-native";
 import { formLabels } from "./labels";
-import { formStyles } from "../Styles/formStyles";
+import { formStyles } from "../Styles/styles";
 
 const RegistrationForm = ({ 
-  userName, 
-  userPhone, 
-  updateName, 
-  updatePhone, 
-  handleSubmit 
+  valorNome, 
+  valorTelefone, 
+  onChangeNome, 
+  onChangeTelefone, 
+  onPressCadastrar 
 }) => {
   return (
     <View style={formStyles.container}>
@@ -18,8 +18,8 @@ const RegistrationForm = ({
         <Text style={formStyles.fieldLabel}>{formLabels.nameField}</Text>
         <TextInput
           style={formStyles.textField}
-          value={userName}
-          onChangeText={updateName}
+          value={valorNome}
+          onChangeText={onChangeNome}
           placeholder="Digite seu nome completo"
         />
       </View>
@@ -28,8 +28,8 @@ const RegistrationForm = ({
         <Text style={formStyles.fieldLabel}>{formLabels.phoneField}</Text>
         <TextInput
           style={formStyles.textField}
-          value={userPhone}
-          onChangeText={updatePhone}
+          value={valorTelefone}
+          onChangeText={onChangeTelefone}
           inputMode="tel"
           placeholder="Informe seu telefone"
         />
@@ -37,7 +37,7 @@ const RegistrationForm = ({
 
       <Pressable 
         style={formStyles.submitButton} 
-        onPress={handleSubmit}
+        onPress={onPressCadastrar}
         android_ripple={{ color: '#f0f0f0' }}
       >
         <Text style={formStyles.buttonLabel}>{formLabels.submitButton}</Text>
